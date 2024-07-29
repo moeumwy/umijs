@@ -34,7 +34,7 @@ class CommController extends Controller
 
             $responseData = $response->json();
 
-            if (!isset($responseData['success'])) {
+            if (!isset($responseData['success']) && $responseData['success'] === false) {
                 abort(500, ('Invalid code is incorrect'));
             }
         }
