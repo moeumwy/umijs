@@ -54,7 +54,7 @@ class AuthController extends Controller
 
             $responseData = $response->json();
 
-            if (!isset($responseData['success']) && !$responseData['success'] === true) {
+            if (!isset($responseData['success']) && $responseData['success'] === false) {
                 abort(500, ('Invalid code is incorrect'));
             } 
         }
