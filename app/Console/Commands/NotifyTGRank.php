@@ -15,7 +15,7 @@ use App\Models\ServerVmess;
 use App\Models\Stat;
 use App\Models\StatServer;
 
-class ResetTraffic extends Command
+class NotifyTGRank extends Command
 {
     protected $builder;
     /**
