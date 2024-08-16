@@ -64,10 +64,12 @@ class NotifyTGRank extends Command
 
         $arrserver = $this->getServerLastRank();
         $strserver = '';
-        foreach ($arrserver['data'] as $ser) {
-            $name = $ser['server_name'];
-            $total = $ser['total'];
-            $str = $str . $name . "：" . $total . "GB\n";
+        $strserver = json_encode($arrserver);
+        $array = json_decode($strserver,true);
+        foreach ($array['data'] as $server){
+            $name = json_decode('"' . $server['server_name'] . '"');
+            $total = round($server['total'],2);
+            $servermess = $servermess . $name . "：" . $total . "GB\n";
         }
         $messageser = sprintf(
             "昨日节点使用流量排行\n———————————————\n".$strserver
