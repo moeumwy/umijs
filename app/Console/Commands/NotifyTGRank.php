@@ -63,7 +63,7 @@ class NotifyTGRank extends Command
         $telegramService->sendMessageWithAdmin($message);
 
         $arrserver = $this->getServerLastRank();
-        $strserver = '';
+        $servermess = '';
         $strserver = json_encode($arrserver);
         $array = json_decode($strserver,true);
         foreach ($array['data'] as $server){
@@ -72,7 +72,7 @@ class NotifyTGRank extends Command
             $servermess = $servermess . $name . "：" . $total . "GB\n";
         }
         $messageser = sprintf(
-            "昨日节点使用流量排行\n———————————————\n".$strserver
+            "昨日节点使用流量排行\n———————————————\n".$servermess
         );
         $telegramService->sendMessageWithAdmin($messageser);
     }
